@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: vector
+  name: vector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: vector
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: vector
+    spec:
+      containers:
+      - image: netflixoss/vector:latest
+        name: vector
+        ports:
+        - containerPort: 80
+        resources: {}
